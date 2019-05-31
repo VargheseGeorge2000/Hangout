@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="202fdd05-c45b-481b-b0b7-5547dd088af9" name="Default" comment="" />
+    <list default="true" id="202fdd05-c45b-481b-b0b7-5547dd088af9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/hangout/hangout/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/hangout/settings.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +16,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hangout/hangout/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+            <state relative-caret-position="381">
+              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -76,18 +78,6 @@
               <item name="Hangout" type="462c0819:PsiDirectoryNode" />
               <item name="hangout" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="hangout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="social" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -95,7 +85,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RU/Venday" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -158,8 +148,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hangout/hangout/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+        <state relative-caret-position="381">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
