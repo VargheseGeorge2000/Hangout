@@ -10,9 +10,13 @@ class Events(models.Model):
     location = models.CharField(max_length=100)
     cost_rating = models.IntegerField()
     date_posted = models.DateTimeField(auto_now_add=True)
+    # I could add details to this "toString method", but the admin dashboard uses this for the object name
 
     def __str__(self):
         return "" + str(self.name)
+
+    def details(self):
+        return "" + str(self.name) + " " + str(self.manager) + " " + str(self.members) + " " + str(self.id)
 
 
 # Setting up photo albums of specific groups

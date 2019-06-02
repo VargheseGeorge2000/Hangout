@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'gedit' group_id=model.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="radio" name="action" value="add" checked="checked">Add
+    <input type="radio" name="action" value="remove">Remove
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

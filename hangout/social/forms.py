@@ -9,6 +9,12 @@ class GroupForm(forms.Form):
     name = forms.CharField(label="Group Name", max_length=100)
 
 
+class GroupEditForm(forms.ModelForm):
+    class Meta:
+        model = models.Groups
+        fields = ['name', 'members']
+
+
 class EventForm(forms.ModelForm):
     class Meta:
         model = models.Events
