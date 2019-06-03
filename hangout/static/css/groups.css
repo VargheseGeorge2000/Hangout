@@ -1,0 +1,48 @@
+
+    /* width */
+    .group::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    /* Track */
+    .group::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+
+    /* Handle */
+    .group::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+
+    /* Handle on hover */
+    .group::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    .s-group-container{
+        margin-bottom: 10%;
+        height: 0;
+        width: stretch;
+        padding-top: 100%;
+        position: relative;
+    }
+        .s-group-container>* img{
+            border-radius: 50%;
+        }
+            .s-group:hover>*:hover{
+                opacity: .5; 
+                cursor: pointer;
+            }
+    .s-group{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .s-group>img{
+        width: 100%;
+        height: 100%;
+    }
