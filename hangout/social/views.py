@@ -8,12 +8,17 @@ from . import models, forms
 
 def social_home(request):
     groups = models.Groups.objects.filter(members=request.user)
-    return HttpResponse("Social Home")
-
+    return render(request, "social/home.html", {'group': groups})
 
 def group_view(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
-    return HttpResponse("View Group" + group_id)
+    if request.user == group_model.manager:
+        is_manager = True
+    else:
+        is_manager = False
+    memory_model = group_model.memories
+    event_model = group_model.memories
+    return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager})
 
 # GROUPS
 def group_create(request):
