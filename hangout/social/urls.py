@@ -12,9 +12,9 @@ urlpatterns = [
     # EVENTS
     path('event-create/<int:group_id>/', views.event_create, name="ecreate"),
     # Edit and Delete in general need their ID as a parameter
-    path('event-edit/<int:event_id>/', views.event_edit, name="eedit"),
-    path('event-delete/<int:event_id>/', views.event_delete, name="edelete"),
+    path('event-edit/<int:group_id>/<int:event_id>/', views.event_edit, name="eedit"),
+    path('event-delete/<int:group_id>/<int:event_id>/', views.event_delete, name="edelete"),
     # MEMORIES
     path('memory-add/<int:group_id>/', views.memory_add, name="madd"),
-    path('memory-delete/<int:memory_id>/', views.memory_delete, name="mdelete"),
+    path('memory-delete/<int:group_id>/<int:memory_id>/', views.memory_delete, name="mdelete"),
 ]

@@ -20,9 +20,9 @@ def group_view(request, group_id):
     members_list = group_model.members.all()
     # Test to see which needs to be reversed (might need to switch)
     # Want the closest upcoming events to show first
-    memory_model = group_model.memories.all().order_by('date_posted')
+    memory_model = group_model.memories.all().order_by('date_posted').reverse()
     # Want the latest memories to show first
-    event_model = group_model.events.all().order_by('datetime_planned').reverse()
+    event_model = group_model.events.all().order_by('datetime_planned')
     print(str(members_list))
     return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list})
 
@@ -39,7 +39,7 @@ def group_create(request):
             group_model = models.Groups(name=group_form.cleaned_data['name'], manager=request.user)
             group_model.save()
             # All the print statements are for debugging purposes
-            print("Group Model : " + group_model.str())
+            print("Group Model : " + group_model.__str__())
             # Must save before adding many to many field
             group_model.members.add(request.user)
             return redirect(to='home')
@@ -61,13 +61,15 @@ def group_edit(request, group_id):
             print("Valid Edit Form")
             # See if its to add or remove a member
             if request.POST['action'] == 'add':
-                group_model.members.add(group_form.cleaned_data["members"])
+                for member in group_form.cleaned_data["members"]:
+                    group_model.members.add(member)
             # Otherwise it's delete
             else:
-                group_model.members.remove(group_form.cleaned_data["members"])
+                for member in group_form.cleaned_data["members"]:
+                    group_model.members.remove(member)
             group_model.name = group_form.cleaned_data["name"]
             group_model.save()
-            print("Group Model : " + group_model.str())
+            print("Group Model : " + group_model.__str__())
             return redirect(to='home')
     else:
         print("Method is not POST")
@@ -94,49 +96,51 @@ def event_create(request, group_id):
         if event_form.is_valid():
             print("New Event being Added")
             # JSON return from a form .cleaned_data
-            event_model = models.Memories(event_form)
+            event_cleandata = event_form.cleaned_data
+            event_model = models.Events(name=event_cleandata["name"], datetime_planned=event_cleandata["datetime_planned"], location=event_cleandata["location"], cost_rating=event_cleandata["cost_rating"])
             event_model.save()
-            group_model.memories.add(event_model)
+            group_model.events.add(event_model)
             # All the print statements are for debugging purposes
             print("Event Model : " + event_model.__str__())
             # Must save before adding many to many field
-            return redirect(to='home')
+            return redirect(to='gview', group_id=group_id)
     else:
         print("Method is not POST")
-        memory_form = forms.MemoryForm()
+        event_form = forms.EventForm()
 
-    return render(request, "social/event_create.html", {'form': event_form})
+    return render(request, "social/event_create.html", {'form': event_form, "group": group_model})
 
 
-def event_edit(request, event_id):
+def event_edit(request, group_id, event_id):
     print("EVENT-EDIT")
-    event_model = models.Groups.objects.get(pk=event_id)
+    event_model = models.Events.objects.get(pk=event_id)
+    group_model = models.Groups.objects.get(pk=group_id)
     if request.method == 'POST':
         event_form = forms.EventForm(request.POST)
         print("Method is POST")
         if event_form.is_valid():
             print("Valid Edit Form")
-            event_cleandata = event_form.cleaned_data()
+            event_cleandata = event_form.cleaned_data
             event_model.name = event_cleandata["name"]
             event_model.datetime_planned = event_cleandata["datetime_planned"]
             event_model.location = event_cleandata["location"]
             event_model.cost_rating = event_cleandata["cost_rating"]
             event_model.save()
             # Edit the values of event to this
-            print("Group Model : " + event_model.__str__())
-            return redirect(to='home')
+            print("Event Model : " + event_model.__str__())
+            return redirect(to='gview', group_id=group_id)
     else:
         print("Method is not POST")
-        event_form = forms.GroupEditForm(instance=event_model)
+        event_form = forms.EventForm(instance=event_model)
     # Use this to auto fill the edit page
-    return render(request, "social/group_edit.html", {'form': event_form, 'model': event_model})
+    return render(request, "social/event_edit.html", {'form': event_form, 'model': event_model,'group':group_model})
 
 
-def event_delete(request, event_id):
+def event_delete(request, group_id, event_id):
     print("EVENT-DELETE")
     event_model = models.Events.objects.get(pk=event_id)
     event_model.delete()
-    return redirect(to='home')
+    return redirect(to='gview', group_id=group_id)
 
 
 # MEMORIES
@@ -149,23 +153,25 @@ def memory_add(request, group_id):
         if memory_form.is_valid():
             print("New Memory being Added")
             # JSON return from a form .cleaned_data
-            memory_model = models.Memories(memory_form)
+            memory_cleandata = memory_form.cleaned_data
+            memory_model = models.Memories(image=memory_cleandata["image"], caption=memory_cleandata["caption"])
             memory_model.save()
             group_model.memories.add(memory_model)
             # All the print statements are for debugging purposes
             print("Memory Model : " + memory_model.__str__())
             # Must save before adding many to many field
-            return redirect(to='home')
+            return redirect(to='gview', group_id=group_id)
+        print("FORM IS NOT VALID")
     else:
         print("Method is not POST")
         memory_form = forms.MemoryForm()
 
-    return render(request, "social/memory_add.html", {'form': memory_form})
+    return render(request, "social/memory_add.html", {'form': memory_form, "group": group_model})
 
 
-def memory_delete(request, memory_id):
+def memory_delete(request, group_id, memory_id):
     print("MEMORY-DELETE")
     memory_model = models.Memories.objects.get(pk=memory_id)
     memory_model.delete()
     # Logically, this makes sense to return to group view, maybe pass it as a parameter?
-    return redirect(to='home')
+    return redirect(to='gview', group_id=group_id)

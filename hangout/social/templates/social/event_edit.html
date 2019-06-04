@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="{% url 'eedit' %}" method="post">
+<form action="{% url 'eedit' group_id=group.id event_id=model.id %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">

@@ -7,9 +7,7 @@
 <body>
     {% if is_manager %}
             <a href="{% url 'gedit' group_id=group.id %}">Edit Group</a>
-    {% endif %}
-    <a href="{% url 'gedit' group_id=group.id %}">Edit Group</a>
-    <ul>
+    {% endif %}<ul>
         {% for member in members %}
             <li>
                 First Name: {{member.first_name}} <br>Last Name: {{member.last_name}} <br>Username: {{member.username}}
@@ -17,18 +15,30 @@
         {% endfor %}
     </ul>
     <br>
+        <a href="{% url 'ecreate' group_id=group.id %}">Create Event</a>
     <ul>
         {% for event in events %}
             <li>
-                Event Name: {{event.name}}
+                Event Name: {{event.name}}<br>
+                Location: {{event.location}}<br>
+                Date/Time: {{event.datetime_planned}}<br>
+                Cost Rating: {{event.cost_rating}}<br>
+                    {% if is_manager %}
+                    <a href="{% url 'eedit' group_id=group.id event_id=event.id %}">Edit Event</a>
+                    <a href="{% url 'edelete' group_id=group.id event_id=event.id %}">Delete Event</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
+    <a href="{% url 'madd' group_id=group.id %}">Add Memory</a>
     <ul>
         {% for memory in memories %}
             <li>
                 Memory Image: {{memory.image}}
                 Memory Caption: {{memory.caption}}
+                {% if is_manager %}
+                <a href="{% url 'mdelete' group_id=group.id event_id=event.id %}">Delete Memory</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

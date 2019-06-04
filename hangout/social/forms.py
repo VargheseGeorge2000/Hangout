@@ -20,7 +20,6 @@ class EventForm(forms.ModelForm):
         model = models.Events
         fields = ['name', 'datetime_planned', 'location', 'cost_rating']
 
-
 class MemoryForm(forms.ModelForm):
     class Meta:
         model = models.Memories
