@@ -10,7 +10,7 @@ urlpatterns = [
     path('group-edit/<int:group_id>/', views.group_edit, name="gedit"),
     path('group-delete/<int:group_id>/', views.group_delete, name="gdelete"),
     # EVENTS
-    path('event-create/', views.event_create, name="ecreate"),
+    path('event-create/<int:group_id>/', views.event_create, name="ecreate"),
     # Edit and Delete in general need their ID as a parameter
     path('event-edit/<int:event_id>/', views.event_edit, name="eedit"),
     path('event-delete/<int:event_id>/', views.event_delete, name="edelete"),

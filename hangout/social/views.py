@@ -79,18 +79,57 @@ def group_edit(request, group_id):
 def group_delete(request, group_id):
     print("GROUP-DELETE")
     group_model = models.Groups.objects.get(pk=group_id)
+    print("Deleting: " + group_model.name)
     group_model.delete()
     return redirect(to='home')
 
 
 # EVENTS
-def event_create(request):
+def event_create(request, group_id):
     print("EVENT-CREATE")
-    return HttpResponse("Create Event")
+    group_model = models.Groups.objects.get(pk=group_id)
+    if request.method == 'POST':
+        event_form = forms.EventForm(request.POST)
+        print("Method is POST")
+        if event_form.is_valid():
+            print("New Event being Added")
+            # JSON return from a form .cleaned_data
+            event_model = models.Memories(event_form)
+            event_model.save()
+            group_model.memories.add(event_model)
+            # All the print statements are for debugging purposes
+            print("Event Model : " + event_model.__str__())
+            # Must save before adding many to many field
+            return redirect(to='home')
+    else:
+        print("Method is not POST")
+        memory_form = forms.MemoryForm()
+
+    return render(request, "social/event_create.html", {'form': event_form})
 
 
 def event_edit(request, event_id):
-    return HttpResponse("Edit Event")
+    print("EVENT-EDIT")
+    event_model = models.Groups.objects.get(pk=event_id)
+    if request.method == 'POST':
+        event_form = forms.EventForm(request.POST)
+        print("Method is POST")
+        if event_form.is_valid():
+            print("Valid Edit Form")
+            event_cleandata = event_form.cleaned_data()
+            event_model.name = event_cleandata["name"]
+            event_model.datetime_planned = event_cleandata["datetime_planned"]
+            event_model.location = event_cleandata["location"]
+            event_model.cost_rating = event_cleandata["cost_rating"]
+            event_model.save()
+            # Edit the values of event to this
+            print("Group Model : " + event_model.__str__())
+            return redirect(to='home')
+    else:
+        print("Method is not POST")
+        event_form = forms.GroupEditForm(instance=event_model)
+    # Use this to auto fill the edit page
+    return render(request, "social/group_edit.html", {'form': event_form, 'model': event_model})
 
 
 def event_delete(request, event_id):

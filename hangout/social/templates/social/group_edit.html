@@ -12,5 +12,10 @@
     <input type="radio" name="action" value="remove">Remove
     <input type="submit" value="Submit">
 </form>
+<form action="{% url 'gdelete' group_id=model.id %}" method="post">
+    <!-- Consider making a confirmation warning for the delete-->
+        <input type="submit" value="Delete Group">
+</form>
+
 </body>
 </html>

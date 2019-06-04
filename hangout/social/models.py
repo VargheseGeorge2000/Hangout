@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+# Note: Fix up events/memories as a foreign key relationship, there is no need for them to be many to many relationship
+# CONVERT IT TO ONE TO MANY :D
 # Planning an event within the group
 # Note for later: Maybe for USERS give them profile pictures in a sub class
 class Events(models.Model):
@@ -26,7 +28,7 @@ class Memories(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "" + str(self.name)
+        return "" + str(self.caption) + "" + str(self.date_posted)
 
 
 # Organizing sets of friends to do everything within it
@@ -42,7 +44,10 @@ class Groups(models.Model):
         return "" + str(self.name)
 
 
-# Trying to build a friends list
+# Trying to build a friends list, consider making this app in the user/log in app
 class MyUser(models.Model):
     user = models.OneToOneField(User, related_name="useraccount", on_delete=models.CASCADE)
     friends = models.ManyToManyField(User, related_name="friends")
+
+
+# Add a group chat by having a reference for messages
