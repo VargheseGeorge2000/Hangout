@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
+<ol>
+    {% for group in groups %}
+    <li>
+        <a href="{% url 'gview' group_id=group.id %}">{{group.name}}</a>
+    </li>
+    {% endfor %}
+</ol>
 </body>
 </html>

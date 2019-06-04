@@ -5,6 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-
+    {% if is_manager %}
+            <a href="{% url 'gedit' group_id=group.id %}">Edit Group</a>
+    {% endif %}
+    <a href="{% url 'gedit' group_id=group.id %}">Edit Group</a>
+    <ul>
+        {% for member in members %}
+            <li>
+                First Name: {{member.first_name}} <br>Last Name: {{member.last_name}} <br>Username: {{member.username}}
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <ul>
+        {% for event in events %}
+            <li>
+                Event Name: {{event.name}}
+            </li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for memory in memories %}
+            <li>
+                Memory Image: {{memory.image}}
+                Memory Caption: {{memory.caption}}
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

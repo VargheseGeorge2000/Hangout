@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models, forms
-
+from django.contrib.auth.models import User
 # All these methods should have a log in decorator that will redirect to the log in page
 # Consider making the forms all a template to stylize
 
 
 def social_home(request):
     groups = models.Groups.objects.filter(members=request.user)
-    return render(request, "social/home.html", {'group': groups})
+    return render(request, "social/home.html", {'groups': groups})
+
 
 def group_view(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
@@ -16,9 +17,15 @@ def group_view(request, group_id):
         is_manager = True
     else:
         is_manager = False
-    memory_model = group_model.memories
-    event_model = group_model.memories
-    return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager})
+    members_list = group_model.members.all()
+    # Test to see which needs to be reversed (might need to switch)
+    # Want the closest upcoming events to show first
+    memory_model = group_model.memories.all().order_by('date_posted')
+    # Want the latest memories to show first
+    event_model = group_model.events.all().order_by('datetime_planned').reverse()
+    print(str(members_list))
+    return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list})
+
 
 # GROUPS
 def group_create(request):
@@ -74,6 +81,7 @@ def group_delete(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
     group_model.delete()
     return redirect(to='home')
+
 
 # EVENTS
 def event_create(request):

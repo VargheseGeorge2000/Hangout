@@ -18,7 +18,7 @@ class GroupEditForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = models.Events
-        fields = ['name', 'date_planned', 'location', 'cost_rating']
+        fields = ['name', 'datetime_planned', 'location', 'cost_rating']
 
 
 class MemoryForm(forms.ModelForm):

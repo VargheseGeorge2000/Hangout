@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Note for later: Maybe for USERS give them profile pictures in a sub class
 class Events(models.Model):
     name = models.CharField(max_length=30)
-    date_planned = models.DateField()
+    datetime_planned = models.DateTimeField()
     location = models.CharField(max_length=100)
     cost_rating = models.IntegerField()
     date_posted = models.DateTimeField(auto_now_add=True)
@@ -40,3 +40,9 @@ class Groups(models.Model):
 
     def __str__(self):
         return "" + str(self.name)
+
+
+# Trying to build a friends list
+class MyUser(models.Model):
+    user = models.OneToOneField(User, related_name="useraccount", on_delete=models.CASCADE)
+    friends = models.ManyToManyField(User, related_name="friends")
