@@ -40,7 +40,7 @@ def group_create(request):
             group_model = models.Groups(name=group_form.cleaned_data['name'], manager=request.user)
             group_model.save()
             # All the print statements are for debugging purposes
-            print("Group Model : " + group_model.__str__())
+            print("Group Model : " + group_model.__str__() + str(group_model.id))
             # Must save before adding many to many field
             group_model.members.add(request.user)
             return redirect(to='home')

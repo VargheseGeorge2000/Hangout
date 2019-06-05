@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="202fdd05-c45b-481b-b0b7-5547dd088af9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/hangout/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hangout/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hangout/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hangout/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hangout/social/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/social/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hangout/media/addgroup.png" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/static/images/addgroup.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hangout/social/templates/social/group_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/social/templates/social/group_view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hangout/social/templates/social/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/social/templates/social/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hangout/social/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/social/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hangout/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/static/css/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hangout/static/css/groups.css" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/static/css/groups.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hangout/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hangout/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,26 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hangout/social/models.py">
+      <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hangout/static/css/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-316">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hangout/social/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="414">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
             </state>
           </provider>
         </entry>
@@ -51,63 +34,68 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hangout/static/css/layout.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
-            </state>
-          </provider>
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hangout/static/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="groups.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hangout/static/css/groups.css">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hangout/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state relative-caret-position="425">
+              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="group_view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/group_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="78" selection-start-line="11" selection-start-column="78" selection-end-line="11" selection-end-column="78" />
+            <state relative-caret-position="170">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hangout/hangout/urls.py">
+      <file leaf-file-name="group_view.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/group_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="-44">
+              <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hangout/social/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="42" column="80" selection-start-line="42" selection-start-column="80" selection-end-line="42" selection-end-column="80" />
               <folding>
-                <element signature="e#1#33#0" expanded="true" />
+                <element signature="e#0#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="hangout logo.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hangout/static/images/hangout logo.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hangout/hangout/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1020">
+            <state relative-caret-position="-1370">
               <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
             </state>
           </provider>
@@ -151,12 +139,14 @@
         <option value="$PROJECT_DIR$/hangout/accounts/models.py" />
         <option value="$PROJECT_DIR$/hangout/accounts/urls.py" />
         <option value="$PROJECT_DIR$/hangout/accounts/views.py" />
-        <option value="$PROJECT_DIR$/hangout/social/views.py" />
         <option value="$PROJECT_DIR$/hangout/static/css/layout.css" />
         <option value="$PROJECT_DIR$/hangout/social/models.py" />
+        <option value="$PROJECT_DIR$/hangout/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/hangout/static/css/groups.css" />
         <option value="$PROJECT_DIR$/hangout/social/templates/social/group_view.html" />
         <option value="$PROJECT_DIR$/hangout/templates/index.html" />
         <option value="$PROJECT_DIR$/hangout/social/templates/social/home.html" />
+        <option value="$PROJECT_DIR$/hangout/social/views.py" />
       </list>
     </option>
   </component>
@@ -188,28 +178,39 @@
               <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hangout" type="462c0819:PsiDirectoryNode" />
               <item name="hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="hangout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hangout" type="462c0819:PsiDirectoryNode" />
               <item name="hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hangout" type="462c0819:PsiDirectoryNode" />
               <item name="hangout" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="social" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hangout" type="462c0819:PsiDirectoryNode" />
               <item name="hangout" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hangout" type="462c0819:PsiDirectoryNode" />
               <item name="hangout" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hangout" type="462c0819:PsiDirectoryNode" />
+              <item name="hangout" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hangout" type="b2602c69:ProjectViewProjectNode" />
@@ -228,6 +229,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vargh\Desktop\Projects\Django\Hangout\hangout\static\images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vargh\Desktop\Projects\Django\Hangout\hangout\social\templates\social" />
     </key>
@@ -284,13 +288,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hangout/social/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/group_create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -566,38 +563,12 @@
     <entry file="file://$PROJECT_DIR$/hangout/social/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/hangout/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hangout/static/css/section.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hangout/static/css/groups.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hangout/static/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hangout/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="79" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hangout/social/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -624,29 +595,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hangout/hangout/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1020">
+        <state relative-caret-position="-1370">
           <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/static/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/static/css/section.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/static/css/groups.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/static/images/hangout logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/social/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="42" column="80" selection-start-line="42" selection-start-column="80" selection-end-line="42" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hangout/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/group_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        <state relative-caret-position="425">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="78" selection-start-line="11" selection-start-column="78" selection-end-line="11" selection-end-column="78" />
+        <state relative-caret-position="170">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hangout/social/templates/social/group_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
         </state>
       </provider>
     </entry>

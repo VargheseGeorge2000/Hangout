@@ -1,29 +1,37 @@
 {% extends 'index.html' %}
+{% load static from staticfiles %}
 
 {% block group %}
-    {% for group_unit in groups %}
+    {% for group in groups %}
         <div class="s-group-container">
             <div class="s-group">
-                <img src="{{group_unit.profile_pic.url}}" alt="xd">
+                <a href="{% url 'gview' group_id=group.id %}">
+                    <img src="{{group.profile_pic.url}}" alt="xd"/>
+                </a>
             </div>
         </div>
     {% endfor %}
+    <a href="{% url 'gcreate' %}"><img src="{% static 'images/addgroup.png' %}" alt="xd"/></a>
 {% endblock %}
 {% block section %}
+    {% for member in members %}
+    <div class="drop-parent">
+        <button class="dropdown-btn">
+             {{member.username}}
+        </button>
+        <div class="dropdown-container">
+            <a>{{member.first_name}}</a>
+            <a>{{member.last_name}}</a>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}
 {% block body %}
-{% endblock %}
 {% if is_manager %}
         <a href="{% url 'gedit' group_id=group.id %}">Edit Group</a>
-{% endif %}<ul>
-    {% for member in members %}
-        <li>
-            First Name: {{member.first_name}} <br>Last Name: {{member.last_name}} <br>Username: {{member.username}}
-        </li>
-    {% endfor %}
-</ul>
+{% endif %}
 <br>
-    <a href="{% url 'ecreate' group_id=group.id %}">Create Event</a>
+<a href="{% url 'ecreate' group_id=group.id %}">Create Event</a>
 <ul>
     {% for event in events %}
         <li>
@@ -50,5 +58,7 @@
         </li>
     {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}
+
+
+

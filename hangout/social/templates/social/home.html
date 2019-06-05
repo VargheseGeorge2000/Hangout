@@ -5,11 +5,14 @@
     {% for group in groups %}
         <div class="s-group-container">
             <div class="s-group">
-                <a href="{% url 'gview' group_id=group.id %}"><img src="{{group_unit.profile_pic.url}}" alt="xd"/></a>
+                <a href="{% url 'gview' group_id=group.id %}">
+                    {{group.name}}
+                    <!-- img src="{{group.profile_pic.url}}" alt="xd"/ -->
+                </a>
             </div>
         </div>
     {% endfor %}
-<a href="{% url 'gcreate' %}"><img src="{% static 'addgroup.png' %}" alt="xd"/></a>
+    <a href="{% url 'gcreate' %}"><img src="{% static 'images/addgroup.png' %}" alt="xd"/></a>
 {% endblock %}
 
 
