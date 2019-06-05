@@ -16,7 +16,7 @@ class Events(models.Model):
 
     def __str__(self):
         return "" + str(self.name)
-
+    # For debugging purposes
     def details(self):
         return "" + str(self.name) + " " + str(self.manager) + " " + str(self.members) + " " + str(self.id)
 
@@ -42,12 +42,3 @@ class Groups(models.Model):
 
     def __str__(self):
         return "" + str(self.name)
-
-
-# Trying to build a friends list, consider making this app in the user/log in app
-class MyUser(models.Model):
-    user = models.OneToOneField(User, related_name="useraccount", on_delete=models.CASCADE)
-    friends = models.ManyToManyField(User, related_name="friends")
-
-
-# Add a group chat by having a reference for messages

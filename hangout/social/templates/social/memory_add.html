@@ -8,7 +8,7 @@
 <form class="site-form" action="{% url 'madd' group_id=group.id %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Create">
 </form>
 </body>
 </html>

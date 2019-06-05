@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -107,8 +108,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
+# The link that it ends up as
 STATIC_URL = '/static/'
 
+# Folder to put static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
 ]
+
+# Pictures on website url
+MEDIA_URL = '/media/'
+# Pictures in folder of project
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

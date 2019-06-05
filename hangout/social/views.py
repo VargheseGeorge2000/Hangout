@@ -148,18 +148,15 @@ def memory_add(request, group_id):
     print("MEMORY-CREATE")
     group_model = models.Groups.objects.get(pk=group_id)
     if request.method == 'POST':
-        memory_form = forms.MemoryForm(request.POST)
+        memory_form = forms.MemoryForm(request.POST, request.FILES)
         print("Method is POST")
         if memory_form.is_valid():
             print("New Memory being Added")
-            # JSON return from a form .cleaned_data
-            memory_cleandata = memory_form.cleaned_data
-            memory_model = models.Memories(image=memory_cleandata["image"], caption=memory_cleandata["caption"])
-            memory_model.save()
-            group_model.memories.add(memory_model)
+            memory_instance = memory_form.save()
             # All the print statements are for debugging purposes
-            print("Memory Model : " + memory_model.__str__())
-            # Must save before adding many to many field
+            print("Memory Model : " + memory_instance.__str__())
+            # Must save before adding many to many field (This part is faulty)
+            group_model.memories.add(memory_instance)
             return redirect(to='gview', group_id=group_id)
         print("FORM IS NOT VALID")
     else:
