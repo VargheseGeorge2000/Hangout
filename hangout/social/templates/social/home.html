@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<a href="{% url 'gcreate' %}">Create Group</a>
-<ol>
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+{% block group %}
     {% for group in groups %}
-    <li>
-        <a href="{% url 'gview' group_id=group.id %}">{{group.name}}</a>
-    </li>
+        <div class="s-group-container">
+            <div class="s-group">
+                <a href="{% url 'gview' group_id=group.id %}"><img src="{{group_unit.profile_pic.url}}" alt="xd"/></a>
+            </div>
+        </div>
     {% endfor %}
-</ol>
-</body>
-</html>
+<a href="{% url 'gcreate' %}"><img src="{% static 'addgroup.png' %}" alt="xd"/></a>
+{% endblock %}
+
+
+
+

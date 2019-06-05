@@ -11,5 +11,6 @@ class Message(models.Model):
 
 class MyUser(models.Model):
     user = models.OneToOneField(User, related_name="useraccount", on_delete=models.CASCADE)
-    friends = models.ManyToManyField(User, related_name="friends")
-    messages = models.ManyToManyField(Message, related_name="texts")
+    friends = models.ManyToManyField(User, related_name="friends", blank=True)
+    messages = models.ManyToManyField(Message, related_name="texts", blank=True)
+    profile_picture = models.ImageField(default='default.png', blank=True)

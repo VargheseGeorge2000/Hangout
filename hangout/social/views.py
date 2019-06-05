@@ -12,6 +12,7 @@ def social_home(request):
 
 
 def group_view(request, group_id):
+    groups = models.Groups.objects.filter(members=request.user)
     group_model = models.Groups.objects.get(pk=group_id)
     if request.user == group_model.manager:
         is_manager = True
@@ -24,7 +25,7 @@ def group_view(request, group_id):
     # Want the latest memories to show first
     event_model = group_model.events.all().order_by('datetime_planned')
     print(str(members_list))
-    return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list})
+    return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list, "groups": groups})
 
 
 # GROUPS
