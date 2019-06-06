@@ -2,11 +2,11 @@
 {% load static from staticfiles %}
 
 {% block group %}
-    {% for group in groups %}
+    {% for group_unit in groups %}
         <div class="s-group-container">
             <div class="s-group">
-                <a href="{% url 'gview' group_id=group.id %}">
-                    <img src="{{group.profile_pic.url}}" alt="xd" title="{{group.name}}"/>
+                <a href="{% url 'gview' group_id=group_unit.id %}">
+                    <img src="{{group_unit.profile_pic.url}}" alt="xd" title="{{group_unit.name}}"/>
                 </a>
             </div>
         </div>

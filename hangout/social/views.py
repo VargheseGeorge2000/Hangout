@@ -25,7 +25,7 @@ def group_view(request, group_id):
     # Want the latest memories to show first
     event_model = group_model.events.all().order_by('datetime_planned')
     print(str(members_list))
-    return render(request, "social/group_view.html", {'group_ref':group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list, "groups": groups})
+    return render(request, "social/group_view.html", {'group_ref': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list, "groups": groups})
 
 
 # GROUPS
