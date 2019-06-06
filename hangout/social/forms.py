@@ -12,7 +12,7 @@ class GroupForm(forms.Form):
 class GroupEditForm(forms.ModelForm):
     class Meta:
         model = models.Groups
-        fields = ['name', 'members']
+        fields = ['name', 'members', 'profile_pic']
 
 
 class EventForm(forms.ModelForm):

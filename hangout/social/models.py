@@ -40,7 +40,7 @@ class Groups(models.Model):
     memories = models.ManyToManyField(Memories, blank=True, default=None)
     members = models.ManyToManyField(User, related_name="people")
     manager = models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin")
-    profile_pic = models.ImageField(blank=True, default='defaultgroup.png')
+    profile_pic = models.ImageField(default='defaultgroup.png')
 
     def __str__(self):
         return "" + str(self.name)
