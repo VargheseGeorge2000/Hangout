@@ -34,7 +34,7 @@ class Memories(models.Model):
 # Organizing sets of friends to do everything within it
 class Groups(models.Model):
     name = models.CharField(max_length=30)
-    # icon = models.ImageField()
+    icon = models.ImageField(default="hangout logo.png")
     events = models.ManyToManyField(Events, blank=True, default=None)
     memories = models.ManyToManyField(Memories, blank=True, default=None)
     members = models.ManyToManyField(User, related_name="people")

@@ -8,23 +8,19 @@ from django.contrib.auth.models import User
 
 def social_home(request):
     groups = models.Groups.objects.filter(members=request.user)
-    return render(request, "social/home.html", {'groups': groups})
+    return render(request, "social/home.html", {'groups': groups, 'user': request.user})
 
 
 def group_view(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
+    groups = models.Groups.objects.filter(members=request.user)
     if request.user == group_model.manager:
         is_manager = True
     else:
         is_manager = False
     members_list = group_model.members.all()
-    # Test to see which needs to be reversed (might need to switch)
-    # Want the closest upcoming events to show first
-    memory_model = group_model.memories.all().order_by('date_posted').reverse()
-    # Want the latest memories to show first
-    event_model = group_model.events.all().order_by('datetime_planned')
     print(str(members_list))
-    return render(request, "social/group_view.html", {'group': group_model, 'events': event_model, 'memories': memory_model, "is_manager": is_manager, "members": members_list})
+    return render(request, "social/group_view.html", {'group_ref': group_model, "is_manager": is_manager, "members": members_list, "groups": groups})
 
 
 # GROUPS
@@ -60,12 +56,7 @@ def group_edit(request, group_id):
         if group_form.is_valid():
             print("Valid Edit Form")
             # See if its to add or remove a member
-            if request.POST['action'] == 'add':
-                for member in group_form.cleaned_data["members"]:
-                    group_model.members.add(member)
-            # Otherwise it's delete
-            else:
-                for member in group_form.cleaned_data["members"]:
+            for member in group_form.cleaned_data["members"]:
                     group_model.members.remove(member)
             group_model.name = group_form.cleaned_data["name"]
             group_model.save()
@@ -103,12 +94,24 @@ def event_create(request, group_id):
             # All the print statements are for debugging purposes
             print("Event Model : " + event_model.__str__())
             # Must save before adding many to many field
-            return redirect(to='gview', group_id=group_id)
+            return redirect(to='eview', group_id=group_id)
     else:
         print("Method is not POST")
         event_form = forms.EventForm()
 
     return render(request, "social/event_create.html", {'form': event_form, "group": group_model})
+
+
+def event_view(request, group_id):
+    group_model = models.Groups.objects.get(pk=group_id)
+    groups = models.Groups.objects.filter(members=request.user)
+    if request.user == group_model.manager:
+        is_manager = True
+    else:
+        is_manager = False
+    members_list = group_model.members.all()
+    event_model = group_model.events.all().order_by('datetime_planned').reverse()
+    return render(request, "social/event_view.html", {'group_ref': group_model, "events": event_model, "is_manager": is_manager, "members": members_list, "groups": groups})
 
 
 def event_edit(request, group_id, event_id):
@@ -128,7 +131,7 @@ def event_edit(request, group_id, event_id):
             event_model.save()
             # Edit the values of event to this
             print("Event Model : " + event_model.__str__())
-            return redirect(to='gview', group_id=group_id)
+            return redirect(to='eview', group_id=group_id)
     else:
         print("Method is not POST")
         event_form = forms.EventForm(instance=event_model)
@@ -172,3 +175,16 @@ def memory_delete(request, group_id, memory_id):
     memory_model.delete()
     # Logically, this makes sense to return to group view, maybe pass it as a parameter?
     return redirect(to='gview', group_id=group_id)
+
+
+def memory_view(request, group_id):
+    group_model = models.Groups.objects.get(pk=group_id)
+    groups = models.Groups.objects.filter(members=request.user)
+    if request.user == group_model.manager:
+        is_manager = True
+    else:
+        is_manager = False
+    members_list = group_model.members.all()
+    # Test to see which needs to be reversed (might need to switch)
+    memory_model = group_model.memories.all().order_by('date_posted')
+    return render(request, "social/memory_view.html", {'group_ref': group_model, "memories": memory_model, "is_manager": is_manager, "members": members_list, "groups": groups})

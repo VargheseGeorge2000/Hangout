@@ -50,20 +50,8 @@
             </div>
 {% endblock %}
 
-
-
-
-{% block junk %}
-        {% for member in members %}
-            <li>
-                First Name: {{member.first_name}} <br>Last Name: {{member.last_name}} <br>Username: {{member.username}}
-            </li>
-        {% endfor %}
-<br>
-        <a href="{% url 'ecreate' group_id=group_ref.id %}">Create Event</a>
-    <ul>
-        {% for event in events %}
-            <li>
+{% block body %}
+  {% for event in events %}
                 Event Name: {{event.name}}<br>
                 Location: {{event.location}}<br>
                 Date/Time: {{event.datetime_planned}}<br>
@@ -72,19 +60,6 @@
                     <a href="{% url 'eedit' group_id=group_ref.id event_id=event.id %}">Edit Event</a>
                     <a href="{% url 'edelete' group_id=group_ref.id event_id=event.id %}">Delete Event</a>
                 {% endif %}
-            </li>
+            <hr>
         {% endfor %}
-    </ul>
-    <a href="{% url 'madd' group_id=group_ref.id %}">Add Memory</a>
-    <ul>
-        {% for memory in memories %}
-            <li>
-                Memory Image: <img src="{{memory.image.url}}"/>
-                Memory Caption: {{memory.caption}}
-                {% if is_manager %}
-                <a href="{% url 'mdelete' group_id=group_ref.id memory_id=memory.id %}">Delete Memory</a>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
 {% endblock %}

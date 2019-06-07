@@ -8,8 +8,7 @@
 <form action="{% url 'gedit' group_id=model.id %}" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="radio" name="action" value="add" checked="checked">Add
-    <input type="radio" name="action" value="remove">Remove
+    <h1>Choose who in the group list to remove</h1>
     <input type="submit" value="Submit">
 </form>
 <form action="{% url 'gdelete' group_id=model.id %}" method="post">
