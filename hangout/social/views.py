@@ -2,15 +2,18 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models, forms
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 # All these methods should have a log in decorator that will redirect to the log in page
 # Consider making the forms all a template to stylize
 
 
+@login_required(login_url="/account/login/")
 def social_home(request):
     groups = models.Groups.objects.filter(members=request.user)
     return render(request, "social/home.html", {'groups': groups, 'user': request.user})
 
 
+@login_required(login_url="/account/login/")
 def group_view(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
     groups = models.Groups.objects.filter(members=request.user)
@@ -24,6 +27,7 @@ def group_view(request, group_id):
 
 
 # GROUPS
+@login_required(login_url="/account/login/")
 def group_create(request):
     print("GROUP-CREATE")
     if request.method == 'POST':
@@ -47,6 +51,7 @@ def group_create(request):
 
 
 # Will have modifications to members name and delete option
+@login_required(login_url="/account/login/")
 def group_edit(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
     print("GROUP-EDIT")
@@ -69,6 +74,7 @@ def group_edit(request, group_id):
     return render(request, "social/group_edit.html", {'form': group_form, 'model': group_model})
 
 
+@login_required(login_url="/account/login/")
 def group_delete(request, group_id):
     print("GROUP-DELETE")
     group_model = models.Groups.objects.get(pk=group_id)
@@ -78,6 +84,7 @@ def group_delete(request, group_id):
 
 
 # EVENTS
+@login_required(login_url="/account/login/")
 def event_create(request, group_id):
     print("EVENT-CREATE")
     group_model = models.Groups.objects.get(pk=group_id)
@@ -102,6 +109,7 @@ def event_create(request, group_id):
     return render(request, "social/event_create.html", {'form': event_form, "group": group_model})
 
 
+@login_required(login_url="/account/login/")
 def event_view(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
     groups = models.Groups.objects.filter(members=request.user)
@@ -114,6 +122,7 @@ def event_view(request, group_id):
     return render(request, "social/event_view.html", {'group_ref': group_model, "events": event_model, "is_manager": is_manager, "members": members_list, "groups": groups})
 
 
+@login_required(login_url="/account/login/")
 def event_edit(request, group_id, event_id):
     print("EVENT-EDIT")
     event_model = models.Events.objects.get(pk=event_id)
@@ -139,6 +148,7 @@ def event_edit(request, group_id, event_id):
     return render(request, "social/event_edit.html", {'form': event_form, 'model': event_model,'group':group_model})
 
 
+@login_required(login_url="/account/login/")
 def event_delete(request, group_id, event_id):
     print("EVENT-DELETE")
     event_model = models.Events.objects.get(pk=event_id)
@@ -147,6 +157,7 @@ def event_delete(request, group_id, event_id):
 
 
 # MEMORIES
+@login_required(login_url="/account/login/")
 def memory_add(request, group_id):
     print("MEMORY-CREATE")
     group_model = models.Groups.objects.get(pk=group_id)
@@ -169,6 +180,7 @@ def memory_add(request, group_id):
     return render(request, "social/memory_add.html", {'form': memory_form, "group": group_model})
 
 
+@login_required(login_url="/account/login/")
 def memory_delete(request, group_id, memory_id):
     print("MEMORY-DELETE")
     memory_model = models.Memories.objects.get(pk=memory_id)
@@ -177,6 +189,7 @@ def memory_delete(request, group_id, memory_id):
     return redirect(to='gview', group_id=group_id)
 
 
+@login_required(login_url="/account/login/")
 def memory_view(request, group_id):
     group_model = models.Groups.objects.get(pk=group_id)
     groups = models.Groups.objects.filter(members=request.user)

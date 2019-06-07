@@ -38,11 +38,7 @@
   </head>
   <body>
     {% block form-header %}
-    <form class="form-signin">
     {% endblock %}
-  <div class="text-center mb-4">
-    <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-  </div>
     {% block form-body %}
     {% endblock %}
   <!--<div class="form-label-group">-->
@@ -59,9 +55,8 @@
       {% block button-label %}
       {% endblock %}
   </button>
-    {% block second-button %}
-    {% endblock %}
-  <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
 </form>
+{% block second-button %}
+{% endblock %}
 </body>
 </html>

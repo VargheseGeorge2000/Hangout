@@ -1,9 +1,47 @@
+{% extends 'forms-template.html' %}
 
-    <h1>Sign Up</h1>
-    <!-- Making an account -->
-    <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
-        {% csrf_token %}
-    {{ form }}
-        <input type="submit" value="Signup">
+{% block form-header %}
+    <form class="form-signin" action="{% url 'accounts:signup' %}" method="post">
+    {% csrf_token %}
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Sign Up
+        </h1>
+    </div>
+{% endblock %}
+
+
+
+{% block form-body %}
+    {% for field in form %}
+        <div class="form-control">
+            {{field}}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block button-label %}
+    Register
+{% endblock %}
+
+{% block second-button %}
+    <form class="form-signin" action="{% url 'accounts:login' %}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Log In
+        </button>
     </form>
+{% endblock %}
 
+
+<!--{% block junk %}-->
+    <!--<h1>Log In</h1>-->
+    <!--&lt;!&ndash; Making an account &ndash;&gt;-->
+    <!--<form class="site-form" action="{% url 'accounts:login' %}" method="post">-->
+        <!--{% csrf_token %}-->
+        <!--{{ form }}-->
+        <!--{% if request.GET.next %}-->
+            <!--<input type="hidden" name ="next" value="{{request.GET.next}}">-->
+        <!--{% endif %}-->
+        <!--<input type="submit" value="Login">-->
+    <!--</form>-->
+<!--{% endblock %}-->
