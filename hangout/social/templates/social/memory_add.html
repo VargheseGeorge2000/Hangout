@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form class="site-form" action="{% url 'madd' group_id=group.id %}" method="post" enctype="multipart/form-data">
+{% extends 'forms-template.html' %}
+
+{% block form-header %}
+    <form class="form-signin" action="{% url 'madd' group_id=group.id %}" method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Create">
-</form>
-</body>
-</html>
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Edit Group
+        </h1>
+    </div>
+{% endblock %}
+
+
+
+{% block form-body %}
+    {% for field in form %}
+            {{field}}
+            <label for={{field.label_id}}>{{field.label}}</label>
+    {% endfor %}
+{% endblock %}
+
+{% block button-label %}
+    Update
+{% endblock %}
+
+{% block second-button %}
+    <form class="form-signin" action="{% url 'gview' group_id=group.id %}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Go Back
+        </button>
+    </form>
+{% endblock %}
