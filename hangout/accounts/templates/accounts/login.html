@@ -14,9 +14,8 @@
 
 {% block form-body %}
     {% for field in form %}
-        <div class="form-control">
             {{field}}
-        </div>
+            <label for={{field.label_id}}>{{field.label}}</label>
     {% endfor %}
 {% endblock %}
 

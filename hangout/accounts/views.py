@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from . import forms
 # Create your views here.
 # Added view to avoid mixing up login and login_view
 
@@ -8,7 +9,7 @@ from django.contrib.auth import login, logout, authenticate
 def signup_view(request):
     if request.method == 'POST':
         # Creating a user account
-        form = UserCreationForm(request.POST)
+        form = forms.PrettyCreationForm(request.POST)
         if form.is_valid():
             form.save()
             # Log user in
@@ -22,7 +23,7 @@ def signup_view(request):
             return redirect('home')
     else:
         # Make a blank form and let them make their account
-        form = UserCreationForm()
+        form = forms.PrettyCreationForm()
     # Outside of the else statement to consider case where form is not valid and fails saving, go back here
     return render(request, 'accounts/signup.html', {'form': form})
 
@@ -31,7 +32,7 @@ def signup_view(request):
 def login_view(request):
     if request.method == 'POST':
         # Needs to specify data since not normally first parameter
-        form = AuthenticationForm(data=request.POST)
+        form = forms.PrettyAuthenticationForm(data=request.POST)
         # If valid form (log in fits?)
         if form.is_valid():
             # Log user in
@@ -42,7 +43,7 @@ def login_view(request):
             else:
                 return redirect('home')
     else:
-        form = AuthenticationForm()
+        form = forms.PrettyAuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
 
 

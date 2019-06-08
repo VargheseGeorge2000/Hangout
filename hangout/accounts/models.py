@@ -12,4 +12,4 @@ class Message(models.Model):
 class MyUser(models.Model):
     user = models.OneToOneField(User, related_name="useraccount", on_delete=models.CASCADE)
     friends = models.ManyToManyField(User, related_name="friends")
-    messages = models.ManyToManyField(Message, related_name="texts")
+    messages = models.ForeignKey(Message, related_name="texts", on_delete=models.CASCADE)
