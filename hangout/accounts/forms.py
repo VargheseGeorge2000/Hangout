@@ -18,7 +18,7 @@ class PrettyAuthenticationForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
-        # widgets = {
-        #     'username': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'password': forms.PasswordInput(attrs={'class': 'form-control'}),
-        # }
+        widgets = {
+            'username': forms.TextInput(attrs={'name': 'Username', 'value': 'Username'}),
+            'password': forms.PasswordInput(attrs={'name': 'Password', 'value': 'Password'}),
+        }

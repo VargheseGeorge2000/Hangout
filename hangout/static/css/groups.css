@@ -31,7 +31,8 @@
             height: 100%;
         }
             .s-group:hover>*:hover{
-                opacity: .5; 
+                opacity: .5;
+                transition: 0.4s;
                 cursor: pointer;
             }
     .s-group{
